@@ -27,7 +27,7 @@
                                         <div class="article-category">
                                             <a href="#">Age Rating</a>
                                             <div class="bullet"></div>
-                                            <span class="badge badge-danger">{{ $item->age_rating }}+</span>
+                                            <span class="badge badge-warning">{{ $item->age_rating }}+</span>
                                         </div>
                                         <div class="article-title">
                                             <h2><a class="" href="{{ route('films.show', $item) }}">{{ $item->title }}</a></h2>
@@ -41,28 +41,6 @@
                         {!!$films->links()!!}
                     </div>
 
-                    {{-- <div class="row">
-                        <div class="col-12 col-sm-6 col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Sliders</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="owl-carousel owl-theme slider" id="slider1">
-                                        @foreach ($films as $item)
-                                            <div>
-                                                <img width="100px" src="{{ $item->poster_url }}">
-                                                <div class="slider-caption">
-                                                    <div class="slider-title">Image {{ $loop->iteration  }}</div>
-                                                    <div class="slider-description">{{ $item->description }}</div>
-                                                  </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
     </section>

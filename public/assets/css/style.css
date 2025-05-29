@@ -11,7 +11,7 @@
 }
 
 a {
-  color: #6777ef;
+  color: #0E1420;
   font-weight: 500;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -734,7 +734,7 @@ select.form-control:not([size]):not([multiple]) {
 .card .card-header h4 {
   font-size: 16px;
   line-height: 28px;
-  color: #6777ef;
+  color: var(--warning);
   padding-right: 10px;
   margin-bottom: 0;
 }
@@ -1237,18 +1237,18 @@ table tr:hover .table-links {
 
 /* 3.10 Pagination */
 .page-item .page-link {
-  color: #6777ef;
+  color: rgb(117, 113, 113);
   border-radius: 3px;
   margin: 0 3px;
 }
 .page-item.active .page-link {
-  background-color: #6777ef;
-  border-color: #6777ef;
+  background-color: #0A101C;
+  border-color: var(--warning);
 }
 .page-item.disabled .page-link {
   border-color: transparent;
   background-color: #f9fafe;
-  color: #6777ef;
+  color: #0A101C;
   opacity: 0.6;
 }
 
@@ -1258,7 +1258,7 @@ table tr:hover .table-links {
   font-weight: 600;
 }
 .page-link:hover {
-  background-color: #6777ef;
+  background-color: #0A101C;
   color: #fff;
   border-color: transparent;
 }
@@ -1835,7 +1835,7 @@ h6 .badge {
   left: 0;
   width: 100%;
   height: 115px;
-  background-color: #6777ef;
+  background-color: #0A101C;
   z-index: -1;
 }
 
@@ -2356,7 +2356,7 @@ body, html {
 }
 
 body {
-  background-color: #f4f6f9;
+  background-color: #1B2335;
   font-size: 14px;
   font-weight: 400;
   font-family: "Nunito", "Segoe UI", arial;
@@ -2809,7 +2809,7 @@ pre {
 .section .section-header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
-  background-color: #fff;
+  background-color: #FFC107;
   border-radius: 3px;
   border: none;
   position: relative;

@@ -35,10 +35,6 @@
                                                     Detail
                                                 </a>
                                                 <div class="dropdown-divider></i>"></div>
-                                                {{-- <a href="#" class="dropdown-item has-icon text-danger"
-                                                    data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?"
-                                                    data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i>
-                                                    Archive</a> --}}
                                             </div>
                                         </div>
                                     </div>

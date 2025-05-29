@@ -1,7 +1,8 @@
 <div class="navbar-bg"></div>
 {{-- NAVBAR PERTAMA --}}
 <nav class="navbar navbar-expand-lg main-navbar">
-    <a href="{{route('landing.page')}}" class="navbar-brand sidebar-gone-hide text-center">SeaFlashTix</a>
+    <a href="{{route('landing.page')}}"
+    class="navbar-brand sidebar-gone-hide text-center">XXFILMS</a>
     <div class="navbar-nav">
         <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
     </div>

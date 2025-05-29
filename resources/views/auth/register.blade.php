@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
                     <div class="login-brand">
-                        <img src="{{ asset('assets/img/stisla-fill.svg') }}" alt="logo" width="100"
-                            class="shadow-light rounded-circle">
+                        <img src="{{ asset('assets/img/XxFilms.png') }}" alt="logo" width="190"
+                            class="shadow-light">
                     </div>
-                    <div class="card card-primary">
+                    <div class="card card-warning">
                         <div class="card-header">
                             <h4>Register</h4>
                         </div>
@@ -97,15 +97,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <button type="submit" class="btn btn-warning btn-lg btn-block">
                                         Register
                                     </button>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    <div class="simple-footer">
-                        Developed by Ilham Yudantyo &copy; 2023
                     </div>
                 </div>
             </div>

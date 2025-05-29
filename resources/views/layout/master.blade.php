@@ -73,7 +73,7 @@
             {{-- FOOTER --}}
             <footer class="main-footer">
                 <div class="text-center">
-                   Developed by Ilham Yudantyo &copy; 2023
+                   XXFILMS by Kelompok IV &copy; 2023
                 </div>
             </footer>
         </div>

@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        /* CSS Kustom Anda - Sebaiknya pindahkan ke file CSS terpisah (misal: public/css/custom-landing.css)
-           dan link menggunakan <link rel="stylesheet" href="{{ asset('css/custom-landing.css') }}"> */
+        /* CSS Kustom Anda - SANGAT DISARANKAN untuk memindahkan ini ke file CSS terpisah */
         body {
             background-color: #0A101C;
             color: #E0E0E0;
@@ -291,6 +290,45 @@
             font-size: 0.8rem;
             text-align: center;
         }
+
+        /* ... (CSS lain yang sudah ada) ... */
+
+/* Featured Movie Section (TRAH) - Penyesuaian Baru */
+#featured-trah .section-title { /* Lebih spesifik jika perlu override */
+    font-size: 2rem; /* Sesuaikan ukurannya */
+    line-height: 1.3;
+    color: #FFFFFF; /* Pastikan warna judul putih jika belum */
+}
+
+#featured-trah .section-subtitle {
+    font-size: 1rem; /* Sesuaikan ukurannya */
+    color: #adb5bd; /* Pastikan warna subtitle jika belum */
+}
+
+.featured-movie-item .movie-poster-card {
+    max-width: 350px; /* Batasi lebar maksimum poster agar tidak terlalu besar */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Efek shadow lebih nyata */
+}
+
+.movie-meta-info {
+    color: #FFC107; /* Warna kuning untuk teks meta */
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.movie-meta-info i {
+    margin-right: 5px; /* Jarak antara ikon dan teks */
+}
+
+
+.featured-movie-poster-container .overlay-text,
+.featured-movie-poster-container .overlay-text-views {
+    position: static; // atau hapus jika tidak perlu lagi
+    background-color: transparent;
+}
+*/
     </style>
 </head>
 <body>
@@ -298,7 +336,7 @@
     {{-- 1. HEADER/NAVBAR --}}
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
-            {{-- Mengarah ke route landing page yang baru --}}
+            {{-- Mengarah ke route landing page --}}
             <a class="navbar-brand" href="{{ route('landing.page') }}">
                 <i class="bi bi-play-circle-fill"></i>XXFILMS
             </a>
@@ -311,7 +349,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('landing.page') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        {{-- Mengarah ke daftar film yang sekarang menggunakan nama route 'films.index' (tapi URL /films-catalog) --}}
+                        {{-- Mengarah ke daftar film yang sekarang menggunakan nama route 'films.index' (URL /films-catalog) --}}
                         <a class="nav-link" href="{{ route('films.index') }}">Films</a>
                     </li>
                     <li class="nav-item">
@@ -339,19 +377,19 @@
 
                 <div class="row gx-3 gy-4 justify-content-center">
                     @php
-                        // GANTI DENGAN DATA ASLI ATAU DARI DATABASE (jika dinamis)
+                        // GANTI DENGAN URL GAMBAR ASLI KAMU & JUDUL YANG SESUAI
                         $heroMovies = [
-                            ['title' => 'Paddington Di Peru', 'img_placeholder' => 'https://placehold.co/300x450/101827/FFC107?text=Paddington', 'url' => route('films.index')],
-                            ['title' => 'Moana 2', 'img_placeholder' => 'https://placehold.co/300x450/101827/FFC107?text=Moana+2', 'url' => route('films.index')],
-                            ['title' => 'Wild Robot', 'img_placeholder' => 'https://placehold.co/300x450/101827/FFC107?text=Wild+Robot', 'url' => route('films.index')],
-                            ['title' => 'Garfield', 'img_placeholder' => 'https://placehold.co/300x450/E67E22/FFFFFF?text=Garfield', 'url' => route('films.index')],
+                            ['title' => 'Paddington Di Peru', 'img_url' => asset('images/film1.webp'), 'url' => route('films.index')],
+                            ['title' => 'Moana 2',            'img_url' => asset('images/moana.webp'), 'url' => route('films.index')],
+                            ['title' => 'Wild Robot',         'img_url' => asset('images/wild.webp'), 'url' => route('films.index')],
+                            ['title' => 'Garfield',           'img_url' => asset('images/garfield.webp'), 'url' => route('films.index')],
                         ];
                     @endphp
                     @foreach ($heroMovies as $movie)
                     <div class="col-6 col-md-4 col-lg-3">
                         <a href="{{ $movie['url'] }}" class="text-decoration-none">
                             <div class="movie-poster-card h-100">
-                                <img src="{{ $movie['img_placeholder'] }}" alt="{{ $movie['title'] }}">
+                                <img src="{{ $movie['img_url'] }}" alt="{{ $movie['title'] }}">
                             </div>
                         </a>
                     </div>
@@ -361,26 +399,29 @@
         </section>
 
         {{-- 3. MOVIE SHOWCASE 2 (Now Playing / Featured) --}}
-        <section id="now-playing" class="py-5">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-title">CIPTAKAN MOMEN TAK TERLUPAKAN</h2>
-                    <p class="section-subtitle mb-5">DI LAYAR LEBAR KESAYANGAN</p>
-                </div>
-                <div class="row justify-content-center align-items-stretch g-4">
-                    <div class="col-md-6">
-                        <a href="{{ route('films.index') }}">
-                            <img src="https://placehold.co/600x400/101827/FFC107?text=MEG+2" alt="MEG 2: THE TRENCH" class="img-fluid showcase-2-poster">
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="{{ route('films.index') }}">
-                            <img src="https://placehold.co/600x400/101827/FFC107?text=OPPENHEIMER" alt="OPPENHEIMER" class="img-fluid showcase-2-poster">
-                        </a>
-                    </div>
-                </div>
+       <section id="now-playing" class="py-5">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">CIPTAKAN MOMEN TAK TERLUPAKAN</h2>
+            <p class="section-subtitle mb-5">DI LAYAR LEBAR KESAYANGAN</p>
+        </div>
+        {{-- Baris baru untuk kedua gambar, dengan pembatasan lebar jika perlu --}}
+        <div class="row justify-content-center align-items-stretch g-4">
+            {{-- Kolom untuk Gambar 1 --}}
+            <div class="col-md-5 col-lg-4"> {{-- Sedikit lebih kecil dari col-md-6 untuk memberi ruang --}}
+                <a href="{{ route('films.index') }}">
+                    <img src="{{ asset('images/0949aae1-52c5-487e-9ae5-37d034a1cc8d.webp') }}" alt="MEG 2: THE TRENCH" class="img-fluid showcase-2-poster" style="width: 100%; height: auto; object-fit: cover;">
+                </a>
             </div>
-        </section>
+            {{-- Kolom untuk Gambar 2 --}}
+            <div class="col-md-5 col-lg-4"> {{-- Sedikit lebih kecil dari col-md-6 untuk memberi ruang --}}
+                <a href="{{ route('films.index') }}">
+                    <img src="{{ asset('images/b4fc0f77-0926-4658-b08b-76cfc944c1d1.webp') }}" alt="OPPENHEIMER" class="img-fluid showcase-2-poster" style="width: 100%; height: auto; object-fit: cover;">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
         {{-- 4. ICON BAR / QUICK INFO --}}
         <section id="quick-info" class="py-4" style="background-color: #101827;">
@@ -406,57 +447,62 @@
             </div>
         </section>
 
-        {{-- 5. FEATURED MOVIE SECTION (TRAH) --}}
-        <section id="featured-trah" class="py-5">
-            <div class="container">
-                <div class="row align-items-center g-4">
-                    <div class="col-md-6">
-                        <h2 class="section-title" style="font-size: 1.8rem;">Ciptakan momen tak terlupakan di layar lebar</h2>
-                        <p class="section-subtitle" style="font-size: 1rem;">Rasakan pengalaman menonton yang imersif dengan kualitas audio visual terbaik. Film "TRAH" kini hadir untuk Anda.</p>
-                        <a href="{{ route('films.index') }}" class="btn btn-custom-dark-outline">Order Tiket</a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="{{ route('films.index') }}" class="featured-movie-poster-container d-block text-decoration-none">
-                            <img src="https://placehold.co/500x700/101827/FFC107?text=TRAH" alt="TRAH Poster" class="img-fluid movie-poster-card">
-                            <div class="overlay-text">
-                                <i class="bi bi-star-fill"></i> 7K+ Reviews
-                            </div>
-                             <div class="overlay-text-views">
-                                <i class="bi bi-eye-fill"></i> 9000 Views
-                            </div>
-                        </a>
+       {{-- 5. FEATURED MOVIE SECTION (TRAH) --}}
+<section id="featured-trah" class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5"> {{-- Menambah g-5 untuk gutter/jarak lebih besar antar kolom --}}
+            <div class="col-md-6">
+                <h2 class="section-title" style="font-size: 2.2rem; line-height: 1.3;">CIPTAKAN MOMEN TAK TERLUPAKAN DI LAYAR LEBAR</h2> {{-- Sesuaikan teks & style --}}
+                <p class="section-subtitle" style="font-size: 1.1rem;">Rasakan pengalaman menonton yang imersif dengan kualitas audio visual terbaik. Film "TRAH" kini hadir untuk Anda.</p>
+                <a href="{{ route('films.index') }}" class="btn btn-custom-dark-outline btn-lg">ORDER TIKET</a> {{-- Menambah btn-lg untuk tombol lebih besar --}}
+            </div>
+            <div class="col-md-6 text-center"> {{-- Menambah text-center untuk memusatkan konten di dalam kolom ini --}}
+                <div class="featured-movie-item">
+                    <a href="{{ route('films.index') }}" class="text-decoration-none d-inline-block">
+                        {{-- GANTI DENGAN URL GAMBAR ASLI KAMU --}}
+                        <img src="{{ asset('images/ae803bc6-e996-493f-b0ca-436aa0fd36c5.webp') }}" alt="TRAH Poster" class="img-fluid movie-poster-card mb-3" style="max-width: 350px; margin-left: auto; margin-right: auto;"> {{-- Menambah max-width dan margin auto untuk poster --}}
+                    </a>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="movie-meta-info me-4"> {{-- me-4 untuk margin kanan --}}
+                            <i class="bi bi-star-fill"></i> 7K+ Reviews
+                        </div>
+                        <div class="movie-meta-info">
+                            <i class="bi bi-eye-fill"></i> 9000 Views
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         {{-- 6. STATS/COUNTER SECTION --}}
         <section id="stats" class="py-5" style="background-color: #080D16;">
-            <div class="container">
-                <div class="row text-center gy-4">
-                    <div class="col-6 col-md-3 stats-item">
-                        <i class="bi bi-globe-americas"></i>
-                        <div class="stat-number">1K+</div>
-                        <div class="stat-label">Dunia</div>
-                    </div>
-                    <div class="col-6 col-md-3 stats-item">
-                        <i class="bi bi-film"></i>
-                        <div class="stat-number">2K+</div>
-                        <div class="stat-label">Film</div>
-                    </div>
-                    <div class="col-6 col-md-3 stats-item">
-                        <i class="bi bi-people"></i>
-                        <div class="stat-number">10K+</div>
-                        <div class="stat-label">User</div>
-                    </div>
-                    <div class="col-6 col-md-3 stats-item">
-                        <i class="bi bi-handshake"></i>
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Partner</div>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row text-center align-items-start gy-4">
+            <div class="col-6 col-md-3 stats-item">
+                <i class="bi bi-globe-americas"></i>
+                <div class="stat-number">1K+</div>
+                <div class="stat-label">DUNIA</div>
             </div>
-        </section>
+            <div class="col-6 col-md-3 stats-item">
+                <i class="bi bi-film"></i>
+                <div class="stat-number">2K+</div>
+                <div class="stat-label">FILM</div>
+            </div>
+            <div class="col-6 col-md-3 stats-item">
+                <i class="bi bi-people-fill"></i>
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">USER</div>
+            </div>
+            <div class="col-6 col-md-3 stats-item">
+                <i class="bi bi-building"></i> {{-- Ganti dengan ikon yang kamu mau, misal bi-briefcase-fill --}}
+                <div class="stat-number">500+</div>
+                <div class="stat-label">PARTNER</div>
+            </div>
+        </div>
+    </div>
+</section>
 
         {{-- 7. MOVIE CAROUSEL / "Film Pilihan Untukmu" --}}
         <section id="film-pilihan" class="py-5">
@@ -465,22 +511,21 @@
                     <h2 class="section-title">Film Pilihan Untukmu</h2>
                 </div>
                 <div class="movie-carousel-wrapper mt-4">
-                   @php
-    $pilihanMovies = [
-        ['title' => 'Budi Pekerti', 'img_placeholder' => 'https://upload.wikimedia.org/wikipedia/en/1/1e/Budi_Pekerti_poster.jpg', 'url' => route('films.index')],
-        ['title' => 'Hidayah', 'img_placeholder' => 'https://upload.wikimedia.org/wikipedia/en/2/2e/Hidayah_poster.jpg', 'url' => route('films.index')],
-        ['title' => 'Siksa Neraka', 'img_placeholder' => 'https://upload.wikimedia.org/wikipedia/en/3/3e/Siksa_Neraka_poster.jpg', 'url' => route('films.index')],
-        ['title' => 'Gampang Cuan', 'img_placeholder' => 'https://upload.wikimedia.org/wikipedia/en/4/4e/Gampang_Cuan_poster.jpg', 'url' => route('films.index')],
-        ['title' => 'Film Lain 5', 'img_placeholder' => 'https://upload.wikimedia.org/wikipedia/en/5/5e/Film_Lain_5_poster.jpg', 'url' => route('films.index')],
-        ['title' => 'Film Lain 6', 'img_placeholder' => 'https://upload.wikimedia.org/wikipedia/en/6/6e/Film_Lain_6_poster.jpg', 'url' => route('films.index')],
-    ];
-@endphp
-
+                    @php
+                        // GANTI DENGAN DATA ASLI ATAU DARI DATABASE (jika dinamis)
+                        $pilihanMovies = [
+                            ['title' => 'Home Sweet Loan', 'img_url' => asset('images/mv5by2qxmwrmzdktyjm3oc00mtu2lwfhnwitzwfhytfhodg4nwuzxkeyxkfqcgc-at-v1-23f9213531bb51173639e8a3c28761b6.jpg'), 'url' => route('films.index')],
+                            ['title' => 'Bila esok',      'img_url' => asset('images/Foto - Official Poster Bila Esok Ibu Tiada (instagram.com_cgv.id).jpg'), 'url' => route('films.index')],
+                            ['title' => 'Jumbo','img_url' => asset('images/images.jpeg'), 'url' => route('films.index')],
+                            ['title' => 'Komang',  'img_url' => asset('images/Poster-Komang.jpeg'), 'url' => route('films.index')],
+                            ['title' => 'Azzamine',  'img_url' => asset('images/film-yang-tayang-di-bioskop-bulan-agustus-2024-14.jpeg'), 'url' => route('films.index')],
+                        ];
+                    @endphp
                     @foreach ($pilihanMovies as $movie)
                     <div class="movie-item">
                         <a href="{{ $movie['url'] }}" class="text-decoration-none">
                             <div class="movie-poster-card h-100">
-                                <img src="{{ $movie['img_placeholder'] }}" alt="{{ $movie['title'] }}">
+                                <img src="{{ $movie['img_url'] }}" alt="{{ $movie['title'] }}">
                             </div>
                         </a>
                     </div>
@@ -500,7 +545,8 @@
                     </div>
                     <div class="col-md-6">
                          <a href="{{ route('films.index') }}">
-                            <img src="https://placehold.co/500x700/101827/FFC107?text=AZZAMINE" alt="AZZAMINE Poster" class="img-fluid movie-poster-card">
+                            {{-- GANTI DENGAN URL GAMBAR ASLI KAMU --}}
+                            <img src="{{ asset('images/film-yang-tayang-di-bioskop-bulan-agustus-2024-14.jpeg') }}" alt="AZZAMINE Poster" class="img-fluid movie-poster-card">
                         </a>
                     </div>
                 </div>
@@ -513,7 +559,8 @@
                 <div class="row g-2 justify-content-center">
                     @for ($i = 1; $i <= 6; $i++)
                     <div class="col-6 col-sm-4 col-md-2">
-                        <img src="https://placehold.co/300x200/101827/FFC107?text=Gallery+{{$i}}" alt="Gallery Image {{$i}}" class="gallery-img">
+                        {{-- GANTI DENGAN URL GAMBAR ASLI KAMU --}}
+                        <img src="{{ asset('images/ilustrasi-bioskop_169.jpeg') }}" alt="Gallery Image {{$i}}" class="gallery-img">
                     </div>
                     @endfor
                 </div>
@@ -548,15 +595,13 @@
                         <li><a href="{{ route('landing.page') }}">Home</a></li>
                         <li><a href="{{ route('films.index') }}">Films</a></li>
                         <li><a href="#footer-section">About Us</a></li>
-                        {{-- <li><a href="#">Promo</a></li> --}}
-                        {{-- <li><a href="#">Fees</a></li> --}}
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h5>Contact Info</h5>
                     <ul class="contact-info">
-                        <li><i class="bi bi-geo-alt-fill me-2"></i> Jl. Sinema Raya No. 123, Jakarta</li>
-                        <li><i class="bi bi-telephone-fill me-2"></i> (021) 123-4567</li>
+                        <li><i class="bi bi-geo-alt-fill me-2"></i> Jl. Urip Raya No. 123, Makassar</li>
+                        <li><i class="bi bi-telephone-fill me-2"></i> (+62) 123-4567</li>
                         <li><i class="bi bi-envelope-fill me-2"></i> info@xxfilms.com</li>
                     </ul>
                 </div>

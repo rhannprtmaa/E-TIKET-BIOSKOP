@@ -1,8 +1,11 @@
 <div class="navbar-bg"></div>
 {{-- NAVBAR PERTAMA --}}
 <nav class="navbar navbar-expand-lg main-navbar">
-    <a href="{{route('landing.page')}}"
-    class="navbar-brand sidebar-gone-hide text-center">XXFILMS</a>
+    <a href="{{ route('landing.page') }}" class="navbar-brand sidebar-gone-hide text-center">
+        <img src="{{ asset('assets/img/XXFILMS-removebg-preview.png') }}" alt="XXFILMS Logo"
+            style="height: 50px; filter: invert(1);">
+    </a>
+
     <div class="navbar-nav">
         <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
     </div>
@@ -33,10 +36,12 @@
             </li>
         @else
             <li class="nav-item ">
-                <a href="{{ route('register') }}" class="btn btn-info "><i style="font-size: 14px" class="fas fa-user-plus"></i> Register</a>
+                <a href="{{ route('register') }}" class="btn btn-info "><i style="font-size: 14px"
+                        class="fas fa-user-plus"></i> Register</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('login') }}" class="btn btn-warning ml-2 mr-3"><i style="font-size: 14px" class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="{{ route('login') }}" class="btn btn-warning ml-2 mr-3"><i style="font-size: 14px"
+                        class="fas fa-sign-in-alt"></i> Login</a>
             </li>
         @endif
     </ul>

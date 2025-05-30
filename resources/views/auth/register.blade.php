@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
                     <div class="login-brand">
-                        <img src="{{ asset('assets/img/XxFilms.png') }}" alt="logo" width="190"
-                            class="shadow-light">
+                        <img src="{{ asset('assets/img/XXFILMS-removebg-preview.png') }}" alt="logo" width="250">
                     </div>
                     <div class="card card-warning">
                         <div class="card-header">
@@ -39,8 +38,7 @@
                                             class="form-control
                                         @error('name')
                                             is-invalid
-                                        @enderror
-                                        "
+                                        @enderror"
                                             name="name" required>
                                         @error('name')
                                             <div class="invalid-feedback">
@@ -58,8 +56,7 @@
                                             class="form-control pwstrength
                                             @error('password')
                                                 is-invalid
-                                            @enderror
-                                        "
+                                            @enderror"
                                             data-indicator="pwindicator" name="password" required>
                                         @error('password')
                                             <div class="invalid-feedback">

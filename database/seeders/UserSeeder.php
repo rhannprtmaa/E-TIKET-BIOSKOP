@@ -8,16 +8,13 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         User::create([
-            'username'=>'ilham_',
-            'name'=> 'Ilham Yudantyo',
-            'password'=>bcrypt('ilham123'),
-            'birthdate'=>'2001-09-18',
+            'username'=>'user',
+            'name'=> 'UserKelompok4',
+            'password'=>bcrypt('user123'),
+            'birthdate'=>'2004-09-18',
             'balance'=>500000,
         ]);
     }

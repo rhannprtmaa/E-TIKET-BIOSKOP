@@ -73,7 +73,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">SeaFlashTix</a>
+                        <a href="{{route('landing.page')}}">XXFilms</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="index.html">SC</a>
@@ -88,21 +88,13 @@
             {{-- MAIN --}}
             <div class="main-content">
                 @yield('content-booking')
-                {{-- <section class="section">
-                    <div class="section-header">
-                        <h1>Blank Page</h1>
-                    </div>
-
-                    <div class="section-body">
-                    </div>
-                </section> --}}
             </div>
             {{-- END MAIN --}}
 
             {{-- FOOTER --}}
             <footer class="main-footer">
                 <div class="text-center">
-                    Developed by Ilham Yudantyo &copy; 2023
+                    Kelompok IV &copy; 2025
                 </div>
             </footer>
             {{-- END FOOTER --}}
